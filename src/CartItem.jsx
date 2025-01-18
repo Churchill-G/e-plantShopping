@@ -7,14 +7,18 @@ const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
 
-  // Calculate total amount for all products in the cart
-  const calculateTotalAmount = () => {
  
-  };
+  const calculateTotalAmount = () => {
+  return cart.reduce((total, item) => {
+    return total + (item.quantity * item.cost);
+  }, 0);
+}; // added by me and tested to dispaly on cart.
+  // Calculate total amount for all products in the cart origin code = const calculateTotalAmount = () => {}; 
 
   const handleContinueShopping = (e) => {
-   
-  };
+   e.preventDefault();
+   onContinueShopping(e);
+  };  //added by me and tested to work  this is the child the parent is in productList
 
 
 
@@ -31,6 +35,10 @@ const CartItem = ({ onContinueShopping }) => {
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
   };
+
+  const handleCheckoutShopping = (e) => {
+  alert('Functionality to be added for future reference');
+};
 
   return (
     <div className="cart-container">
