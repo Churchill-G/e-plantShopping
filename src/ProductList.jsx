@@ -1,19 +1,24 @@
 import React, { useState,useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
+import { useDispatch } from 'react-redux';
 import { addItem } from './CartSlice';
 function ProductList() {
     const [showCart, setShowCart] = useState(false); 
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
-    const [addedToCart, setAddedToCart] = useState({}); //added by me in task 1
-    const handleAddToCart = (product) => {
-        dispatch(addItem(product));
+  
+    const dispatch = useDispatch(); //added by me for handleAddToCart
+    const [addedToCart, setAddedToCart] =useState({}); //added by me for handleAddToCart
+
+    const handleAddToCart = (item) => {
+        dispatch(addItem(item));
         setAddedToCart((prevState) => ({
            ...prevState,
-           [product.name]: true, // Set the product name as key and value as true to indicate it's added to cart
+           [item.name]: true, // Set the product name as key and value as true to indicate it's added to cart
          }));
-      }; // added by me in task 1 function to add a plant to the cart when the user selects add to cart button
-    const plantsArray = [
+      }; // added by me in task 1 function to add a plant to the cart when the user selects add to cart button. changed from "product" to "plant".
+    
+      const plantsArray = [
         {
             category: "Air Purifying Plants",
             plants: [
