@@ -16,7 +16,7 @@ function ProductList() {
            ...prevState,
            [item.name]: true, // Set the product name as key and value as true to indicate it's added to cart
          }));
-      }; // added by me in task 1 function to add a plant to the cart when the user selects add to cart button. changed from "product" to "plant".
+      }; // added by me in task 1 function to add a plant to the cart when the user selects add to cart button. changed from "product" to "item".
     
       const plantsArray = [
         {

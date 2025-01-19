@@ -40,6 +40,7 @@ const handleRemove = (item) => {
 
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
+    return item.quantity * item.cost;
   };
 
   const handleCheckoutShopping = (e) => {
